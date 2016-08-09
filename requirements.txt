@@ -1,3 +1,2 @@
 Flask
-flask_SQLAlchemy 
-alembic
+Flask-SQLAlchemy 
