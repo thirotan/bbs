@@ -16,4 +16,6 @@ def create_app(environment='Development'):
     from .views import app as _app
     app.register_blueprint(_app)
 
+    db.init_app(app)
+
     return app
