@@ -1,0 +1,5 @@
+.cache
+*.pyc
+db.sqlite3
+dump.rdb
+instance/config.py
