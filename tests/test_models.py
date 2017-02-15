@@ -1,4 +1,5 @@
 """test_models.py"""
+# -*- coding: utf-8 -*-
 
 import pytest
 

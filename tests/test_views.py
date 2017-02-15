@@ -1,4 +1,5 @@
 """test_views.py."""
+# -*- coding: utf-8 -*-
 
 from flask import url_for
 
