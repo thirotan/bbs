@@ -9,3 +9,13 @@ class TestViews:
         res = client.get(url_for('app.index'))
         assert res.status_code == 200
         assert b'Test' in res.data
+
+    def test_post_message(self, client):
+        res = client.post(
+            url_for(
+                'app.post_message',
+                data=dict(name='test user', content='test comment')
+            )
+        )
+        assert res.status_code == 302
+        assert b'Test' in res.data
