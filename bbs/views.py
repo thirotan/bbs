@@ -20,4 +20,5 @@ def index():
 def post_message():
     name = request.form['name']
     content = request.form['content']
-    return redirect(url_for('.index'))
+    data = Bbs.query.all()
+    return render_template('index.html', contents=data)
