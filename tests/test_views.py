@@ -11,6 +11,6 @@ class TestViews:
         assert b'Sample BBS' in res.data
 
     def test_post_message(self, client):
-        res = client.post(url_for('app.post_message'))
+        res = client.post(url_for('app.post_message'), data=dict(name='test user', content="test content"))
 
         assert res.status_code == 302
