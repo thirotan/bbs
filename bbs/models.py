@@ -9,3 +9,7 @@ class Bbs(db.Model):
     id = db.Column(db.Integer, primary_key=True, autoincrement=True)
     name = db.Column(db.String(128))
     content = db.Column(db.Text)
+
+
+def init():
+    db.create_all()
