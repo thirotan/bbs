@@ -10,11 +10,10 @@ app = Blueprint('app', __name__)
 @app.route('/')
 def index():
     """index page."""
+    contents = Bbs.query.order_by(Bbs.id.desc()).all()
     return render_template('index.html')
-
+    
 
 @app.route('/post_message', methods=['POST'])
 def post_message():
-    name = request.form['name']
-    content = request.form['content']
-    return redirect(url_for('index'))
+    return redirect(url_for('.index'))

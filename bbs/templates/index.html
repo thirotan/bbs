@@ -1,1 +1,20 @@
-<h1>Test</h1>
+<!doctype html>
+    <head>
+        <title>Sample BBS App</title>
+    </head>
+    <body>
+        <h1>Sample BBS</Test>
+        <form sction="/post_message" method="POST">
+            Name: <input placeholder="Please write your name :D" name="name" />
+            <br />
+            <textarea name="content" rows="4" cols="40">Please write message.</textarea>
+            <br />
+            <input type="submit" value="Submit">
+        </form>
+        <hr />
+        {% for post_data in contents %}
+          Name: {{post_data.name}}
+          Content:{{post_data.content}}
+        {% endfor %}
+    </body>
+  </html>
