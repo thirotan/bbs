@@ -1,7 +1,7 @@
 """views.py."""
 # -*- coding: utf-8 -*-
 
-from flask import Blueprint, Flask, redirect, render_template, request, url_for
+from flask import Blueprint, Flask, redirect, render_template, request, session, url_for
 
 from . import db
 from .models import Bbs
@@ -18,7 +18,14 @@ def index():
 
 @app.route('/post_message', methods=['POST'])
 def post_message():
-    name = request.form['name']
-    content = request.form['content']
+    post_name = request.form['name']
+    post_content = request.form['content']
+    save_data = Bbs(
+        name=post_name,
+        content=post_content
+    )
+    db.session.add(save_data)
+    db.session.commit()
+
     data = Bbs.query.all()
-    return render_template('index.html', contents=data)
+    return redirect(url_for('app.index'))
