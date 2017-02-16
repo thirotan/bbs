@@ -1,7 +1,7 @@
 """views.py."""
 # -*- coding: utf-8 -*-
 
-from flask import Blueprint, Flask, redirect, render_template, request, session, url_for
+from flask import Blueprint, redirect, render_template, request, url_for
 
 from . import db
 from .models import Bbs
