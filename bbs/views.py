@@ -27,5 +27,4 @@ def post_message():
     db.session.add(save_data)
     db.session.commit()
 
-    data = Bbs.query.all()
     return redirect(url_for('app.index'))
