@@ -12,7 +12,7 @@ app = Blueprint('app', __name__)
 @app.route('/')
 def index():
     """index page."""
-    data = Bbs.query.all()
+    data = Bbs.query.order_by(Bbs.id.desc()).all()
     return render_template('index.html', contents=data)
 
 
