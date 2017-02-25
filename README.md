@@ -6,7 +6,7 @@ Test BBS application
 python 3.5.1
 
 # Setup
-## script
+## setup script
 ```
 sh setup.sh
 ```
