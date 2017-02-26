@@ -4,7 +4,7 @@
 from flask import Blueprint, redirect, render_template, request, url_for
 
 from . import db
-from .models import Bbs
+from .models import Thread, Title, Message
 
 app = Blueprint('app', __name__)
 
@@ -20,9 +20,10 @@ def index():
 def post_message():
     post_name = request.form['name']
     post_content = request.form['content']
-    save_data = Bbs(
+    save_data = Message(
         name=post_name,
-        content=post_content
+        message=post_content
+        ip_addr = '127.0.0.1'
     )
     db.session.add(save_data)
     db.session.commit()

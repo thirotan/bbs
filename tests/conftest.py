@@ -5,7 +5,7 @@ import pytest
 import time
 
 from bbs import create_app, db as _db
-from bbs.models import Bbs
+from bbs.models import Thread, Title, Message
 
 @pytest.fixture
 def app(request):
@@ -54,11 +54,11 @@ def db_session(db, request):
 
 @pytest.fixture
 def fx_postmessage(db_session):
-    post_message = Bbs(
+    post_message = Thread(
         id=1,
-        name='Test User',
-        content = 'Test Post Message'
+        thread='Test Thread',
+        titles = ''
     )
     db_session.add
     db_session.commit()
-    return post_message
+    return post_title
