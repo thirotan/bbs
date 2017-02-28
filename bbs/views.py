@@ -32,19 +32,19 @@ def delete_category():
     return 'pending'
 
 @app.route('/thread/')
-def category_list():
+def thread_list():
     return 'pending'
 
 @app.route('/thread/<int:id>')
-def category_page():
+def thared_page():
     return 'pending'
 
 @app.route('/thread/create')
-def craete_category():
+def create_thread():
     return 'pending'
 
 @app.route('/thread/<int:id>/delete')
-def delete_category():
+def delete_thready():
     return 'pending'
 
 @app.route('/post_message', methods=['POST'])
