@@ -15,6 +15,37 @@ def index():
     data = Message.query.order_by(Message.id.desc()).all()
     return render_template('index.html', contents=data)
 
+@app.route('/category/')
+def category_list():
+    return 'pending'
+
+@app.route('/category/<int:id>')
+def category_page():
+    return 'pending'
+
+@app.route('/category/create')
+def craete_category():
+    return 'pending'
+
+@app.route('/category/<int:id>/delete')
+def delete_category():
+    return 'pending'
+
+@app.route('/thread/')
+def category_list():
+    return 'pending'
+
+@app.route('/thread/<int:id>')
+def category_page():
+    return 'pending'
+
+@app.route('/thread/create')
+def craete_category():
+    return 'pending'
+
+@app.route('/thread/<int:id>/delete')
+def delete_category():
+    return 'pending'
 
 @app.route('/post_message', methods=['POST'])
 def post_message():
