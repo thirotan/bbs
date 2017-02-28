@@ -7,27 +7,26 @@ from sqlalchemy.orm import relationship, backref
 from bbs import db
 
 
+class Category(db.Model):
+    __tablename__ = 'category'
+    id = db.Column(db.Integer, primary_key=True, autoincrement=True)
+    category_name = db.Column(db.Text)
+
+
 class Thread(db.Model):
     __tablename__ = 'thread'
     id = db.Column(db.Integer, primary_key=True, autoincrement=True)
-    thread_name = db.Column(db.Text)
-    # titles = db.relationship('Title', backref='thread', lazy='dynamic')
-
-
-class Title(db.Model):
-    __tablename__ = 'title'
-    id = db.Column(db.Integer, primary_key=True, autoincrement=True)
-    title = db.Column(db.Text)
+    thread_title = db.Column(db.Text)
     created_at = db.Column(db.DateTime, default=datetime.utcnow)
-    thread_id = db.Column(db.Integer, db.ForeignKey('thireads.id'))
-    # messages = db.relationship('Message', backref='title', lazy='dynamic')
+    category_id = db.Column(db.Integer, db.ForeignKey('category.id'))
 
 
 class Message(db.Model):
     __tablename__ = 'message'
     id = db.Column(db.Integer, primary_key=True, autoincrement=True)
-    name = db.Column(db.Text)
+    username = db.Column(db.Text)
     message = db.Column(db.Text)
     ip_addr = db.Column(db.Text)
+    user_agent = db.Column(db.Text)
     created_at = db.Column(DateTime, default=datetime.utcnow)
-    board_id = db.Column(db.Integer, db.ForeignKey('titles.id'))
+    thread_id = db.Column(db.Integer, db.ForeignKey('thread.id'))

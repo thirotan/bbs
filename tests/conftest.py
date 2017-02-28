@@ -4,8 +4,9 @@
 import pytest
 import time
 
+from datetime import datetime
 from bbs import create_app, db as _db
-from bbs.models import Thread, Title, Message
+from bbs.models import Category, Thread, Message
 
 @pytest.fixture
 def app(request):
@@ -20,6 +21,7 @@ def app(request):
     request.addfinalizer(teardown)
 
     return app
+
 
 @pytest.fixture
 def db(app, request):
@@ -54,11 +56,15 @@ def db_session(db, request):
 
 @pytest.fixture
 def fx_postmessage(db_session):
-    post_message = Thread(
+    post_message = Message(
         id=1,
-        thread='Test Thread',
-        titles = ''
+        username='user a',
+        message='message',
+        ip_addr='127.0.0.1',
+        user_agent='UA12345',
+        created_at=datetime.utcnow,
+        thread_id=1
     )
     db_session.add
     db_session.commit()
-    return post_title
+    return post_message

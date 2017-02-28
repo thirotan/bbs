@@ -12,6 +12,6 @@ class TestViews:
     def test_post_message(self, client, fx_postmessage):
         res = client.post(
             url_for('app.post_message'),
-            data=dict(name='test user', content="test content"))
+            data=dict(username='test user', message="test content"))
 
         assert res.status_code == 302
